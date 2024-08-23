@@ -1,0 +1,390 @@
+:root{
+    --primary-color: #2C3E50;
+    --secondary-color: #D4AF37;
+    --primary-size: 20px;
+    --secondary-size: 10px;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+/* Glossy Background */
+body {
+    font-family: "Lato", sans-serif;
+    background: black;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: auto;
+  }
+  /* Header Styling */
+  header {
+    position: fixed; /* Fixes the header at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    background: none; /* No background */
+    z-index: 1000; /* Ensure it stays on top of other content */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: box-shadow 0.3s ease, border-bottom 0.3s ease;
+  }
+  
+  nav {
+    display: flex; /* Horizontal layout */
+    justify-content: center; /* Center items horizontally */
+    padding: 10px 0; /* Padding for spacing */
+  }
+  
+  ul {
+    list-style: none; /* Remove bullet points */
+    margin: 0;
+    padding-top: 10px;
+    display: flex; /* Arrange list items horizontally */
+  }
+  
+  li {
+    margin:0 150px; /* Spacing between items */
+    transition: transform 0.3s ease;
+  }
+  
+  a {
+    text-decoration: none; /* Remove underline */
+    color: var(--secondary-color); /* Subtle black color */
+    font-size: var(--primary-size); /* Font size */
+    font-weight: 300; /* Bold text */
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+  }
+  a:hover {
+    color: var(--secondary-color); /* Subtle red color for hover effect */
+    transform: scale(1.1); /* Slightly enlarge the text */
+  }
+  
+  /* Optional: Header Hover Effect */
+  header:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Slightly darker border on hover */
+  }
+  /* Home Page Styles */
+/* Home Page Styles */
+.home {
+    position: relative; /* Required for overlay positioning */
+    min-height: 100vh; /* Ensure it takes up full viewport height */
+    margin-top: 60px; /* Adjust if header height causes overlap */
+  }
+  
+  .image-container {
+    position: relative; /* Positioning context for overlay */
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide overflow to keep image tidy */
+    z-index: 1;
+  }
+  
+  .background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container */
+    position: absolute; /* Position the image behind the overlay */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place the image behind other content */
+    display: block; /* Ensure the image is displayed as a block element */
+    image-rendering: auto; /* Use auto rendering to avoid blur */
+  }
+  
+  
+  .overlay-text {
+    position: absolute; /* Absolute positioning within the container */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the text */
+    color: var(--secondary-color);
+    text-align: center;
+    z-index: 1; /* Ensure text is above the image */
+  }
+  
+  .overlay-text h1 {
+    font-size: 8rem; /* Adjust font size */
+    font-weight: 100;
+    text-shadow: horizontal-offset vertical-offset blur-radius --secondary-color;
+    margin: 0;
+  }
+
+  /* Animation for each letter */
+.animated-letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-100px);
+    animation: flyIn 2s forwards;
+  }
+  
+  @keyframes flyIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    25% {
+        opacity: 0.2;
+        transform: translateY(-80px);
+      }
+    50% {
+      opacity: 0.5;
+      transform: translateY(50px);
+    }
+    75% {
+        opacity: 0.7;
+        transform: translateY(30px);
+      }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* About Section Styles */
+  /* About Section Styles */
+.about {
+    height: 100vh; /* Full viewport height */
+    position: relative; /* Position relative for child absolute positioning */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Ensure text is visible over the video */
+    overflow: hidden; /* Hide any overflow from the video */
+    z-index: 1;
+  }
+  
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Ensure no overflow */
+    z-index: -1; /* Place video behind text */
+  }
+  
+  .background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire section */
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .about-content {
+    position: relative; /* Ensure content is above video */
+    text-align: left;
+    max-width: 800px; /* Optional max-width */
+    padding-right: 600px;
+    padding-bottom: 300px; /* Optional padding */
+  }
+  
+  .about p {
+    color: rgba(186, 182, 182, 0.744); /* Text color */
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
+    padding: 15px 20px; /* Padding around the text */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 1.2rem; /* Font size */
+    font-weight: 300;
+    line-height: 1.6; /* Line height for better readability */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+    max-width: 800px; /* Max width for the paragraph */
+  }
+  
+  .car-features {
+    position: absolute;
+    top: 45%;
+    right: 200px;
+    transform: translateY(-50%);
+    width: 300px; /* Adjust width as needed */
+  }
+  
+  .feature {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(186, 182, 182, 0.744); 
+    position: relative;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Soft shadow */
+  }
+  
+  .feature-label {
+    font-weight: bold;
+    color: var(--primary-color) /* Neon pink color for labels */
+  }
+  
+  .feature::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    height: 2px;
+    width: 20px;
+    background: var(--secondary-color); /* Connect line color */
+    transform: translateY(-50%);
+  }
+  
+  .feature:first-child::before {
+    top: 0;
+    transform: translateY(0);
+  }
+  
+  .feature::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--secondary-color); /* Dot color */
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+
+  .feature:hover {
+    transform: scale(1.1) rotate(3deg); /* Slightly larger and tilted */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+  }
+  
+  .feature:hover::before {
+    background: #00ffcc; /* Change connection line color on hover */
+  }
+  
+  .feature:hover::after {
+    background: #00ffcc; /* Change dot color on hover */
+    transform: translateY(-50%) scale(1.5); /* Enlarge the dot */
+  }
+  .supra-meme {
+    position: absolute;
+    bottom: 150px;
+    left: 300px;
+    color: rgba(186, 182, 182, 0.744); 
+    text-shadow: 0 0 10px #ff0081, 0 0 20px #ff0081, 0 0 30px #ff0081, 0 0 40px #ff0081;
+    z-index: 1;
+  }
+  .resume{
+    text-decoration: none;
+    border: none;
+    background-color: black;
+    color: var(--secondary-color);
+    font-size: var(--primary-size);
+    font-weight: 300;
+    font-family: "Lato", sans-serif;
+    cursor: pointer;
+  }
+
+  /* Mobile Styles */
+@media (max-width: 768px) {
+  /* Header Styling */
+  header {
+    padding: 10px; /* Adjust padding */
+  }
+  
+  ul {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+  
+  li {
+    margin: 10px 0; /* Reduce margin for vertical stacking */
+  }
+  
+  a {
+    font-size: 16px; /* Smaller font size for mobile */
+  }
+  
+  /* Home Page Styles */
+  .home {
+    margin-top: 0; /* Remove top margin for mobile */
+  }
+  
+  .overlay-text h1 {
+    font-size: 4rem; /* Smaller font size for mobile */
+  }
+  
+  /* About Section Styles */
+  .about {
+    padding: 20px; /* Add padding for better spacing */
+  }
+  
+  .about-content {
+    padding-right: 20px; /* Adjust padding */
+    padding-bottom: 20px; /* Adjust padding */
+    max-width: 100%; /* Full width for mobile */
+  }
+  
+  .car-features {
+    right: 20px; /* Adjust position */
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding */
+  }
+  
+  .feature {
+    font-size: 0.9rem; /* Smaller font size for mobile */
+    padding: 10px; /* Adjust padding */
+  }
+  
+  .supra-meme {
+    font-size: 1rem; /* Smaller font size for mobile */
+    bottom: 20px; /* Adjust position */
+    left: 20px; /* Adjust position */
+  }
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  /* Header Styling */
+  header {
+    padding: 15px; /* Adjust padding */
+  }
+  
+  ul {
+    flex-direction: row; /* Horizontal layout */
+    justify-content: space-around; /* Space out items */
+  }
+  
+  li {
+    margin: 0 10px; /* Adjust margin */
+  }
+  
+  a {
+    font-size: 18px; /* Slightly smaller font size */
+  }
+  
+  /* Home Page Styles */
+  .overlay-text h1 {
+    font-size: 6rem; /* Adjust font size for tablets */
+  }
+  
+  /* About Section Styles */
+  .car-features {
+    right: 50px; /* Adjust position */
+    width: auto; /* Auto width */
+  }
+  
+  .feature {
+    font-size: 0.95rem; /* Slightly smaller font size */
+  }
+  
+  .supra-meme {
+    font-size: 1.2rem; /* Adjust font size */
+    bottom: 50px; /* Adjust position */
+    left: 50px; /* Adjust position */
+  }
+}
+  
+  
+  
+  
+  
